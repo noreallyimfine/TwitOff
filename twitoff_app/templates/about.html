@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>TwitOff!!</title>
+ </head>
+ <body>
+   <h1> TwitOff About Page </h1>
+   <p> By gathering and analyzing data on different twitter user and their
+     tweets, I've created the TwitOff app! </p>
+  <p> How to play:</p>
+  <p> You create a hypothetical tweet and pick two users.</p>
+  <p> The app will tell you which user would be more likely to tweet that!</p>
+   <ul>
+     {% for user in users %}
+     <li> {{ user.name }}</li>
+     {% endfor %}
+   </ul>
+ </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>TwitOff!!</title>
+ </head>
+ <body>
+   <h1> TwitOff Home Page </h1>
+   <p> Let's predict some tweets! </p>
+   <ul>
+     {% for user in users %}
+     <li>{{ user.username }}</li>
+            {% for tweet in user.tweets %}
+            <li>{{ tweet }}</li>
+          {% endfor %}
+     {% endfor %}
+   </ul>
+ </body>
+</html>

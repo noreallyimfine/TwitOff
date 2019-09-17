@@ -1,3 +1,4 @@
+'''Run app file'''
 from twitoff_app import app
 
 
