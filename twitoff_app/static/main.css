@@ -31,6 +31,11 @@ body {
     border-radius: 3px;
     margin-bottom: 20px;
   }
+
+  .col-sm-6-center {
+    display: block;
+    margin: 0 auto;
+  }
   
   .article-title {
     color: #444444;
