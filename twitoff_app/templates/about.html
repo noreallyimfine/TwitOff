@@ -3,21 +3,33 @@
 <div class="text-center font-weight-bold border-info">
    <p> By gathering and analyzing data on different twitter user and their
      tweets, I've created the TwitOff app! </p>
-  <p> How to play:</p>
-  <p> You create a hypothetical tweet and pick two users.</p>
-  <p> The app will tell you which user would be more likely to tweet that!</p>
-  <p> Here are the 5 most recent tweets for each user</p>
+  <p> Here are the 5 most recent tweets for each user:</p>
 </div>
-{% for user in users %}
-<div class="text-primary font-weight-bolder">
-   <a href="/user/{{ user.name }}">{{ user.name }}</a>
-</div>    
-{% for tweet in user.tweets[:5]%}
-<div class="text-dark">
-   <ul>
-      <li>{{ tweet.text }}</li>
-   </ul>
-</div>
-{% endfor %}   
+<div class="row">
+{% for user in users[:length(users)//2] %}
+<div class="col-sm-6 pl-4">
+   <a class="text-primary font-weight-bolder" href="/user/{{ user.name }}">{{ user.name }}</a>
+   {% for tweet in user.tweets[:5]%} 
+      <ul>
+         <li class="text-dark">{{ tweet.text[:50] }}...</li>
+      </ul>    
 {% endfor %}
+</div>
+{% endfor %}
+</div>
+<div class="row">
+{% for user in users[length(users)//2:] %}
+<div class="col-sm-6 pl-4">
+   <a class="text-primary font-weight-bolder" href="/user/{{ user.name }}">{{ user.name }}</a>    
+   
+   {% for tweet in user.tweets[:5]%}
+   <ul>
+         <li class="text-dark">{{ tweet.text[:50] }}...</li>
+   </ul> 
+{% endfor %}
+</div>  
+ 
+{% endfor %}
+</div>
 {% endblock %}
+

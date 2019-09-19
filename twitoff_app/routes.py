@@ -54,7 +54,8 @@ def predict():
     elif user2 not in usernames:
         raise ValueError('User 2 is not in the app. Please add user first')
     else:
-        pred = predict_user(user1, user2, tweet_text)[0]
+        pred, proba = predict_user(user1, user2, tweet_text)
+        proba = float("{:.2f}".format(proba[0]))
         message = message = ' is more likely to tweet this than '
         if pred == 0:
             winner = user2
@@ -63,4 +64,5 @@ def predict():
             winner = user1
             loser = user2
         return render_template('predict.html', title='Prediction',
-                               winner=winner, loser=loser, message=message)
+                               winner=winner, loser=loser, message=message,
+                               proba=proba)

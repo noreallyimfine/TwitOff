@@ -5,4 +5,19 @@
         <p class="text-center text-monospace">{{ message }}</p>
         <h2 class="text-center text-danger">{{ loser }}</h2>
 </div>
+</br>
+</br>
+</br>
+<div>
+    <h1 class="text-center">Confidence Level:</h1>
+    {% if proba < 60 %}
+        <h1 class="text-danger text-center">{{ proba }}%</h1>
+    {% elif proba < 75 %}
+        <h1 class="text-warning text-center">{{ proba }}%</h1>
+    {% elif proba < 90 %}
+        <h1 class="text-success text-center">{{ proba }}%</h1>
+    {% else %}
+        <h1 class="text-primary text-center">{{ proba }}%</h1>
+    {% endif %}
+</div>
 {% endblock%}

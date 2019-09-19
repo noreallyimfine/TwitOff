@@ -1,6 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="row">
+<div class="col-sm-6 font-weight-bold text-center">
+   <p class="text-primary"> How to play:</p>
+   <p class="text-primary"> You create a hypothetical tweet and pick two users.</p>
+   <p class="text-primary"> The app will tell you which user would be more likely to tweet that!</p>
+  </div>
+<div class="col-sm-6 font-weight-bold text-left">
+    </br>
+    <p class="text-primary pl-5">Add a user yourself</p>
+    <p class="text-primary">Then make predictions with them!</p>
+</div>
+</div>
+<div class="row">
   <div class="col-sm-6 text-center">
     <div class="input-group">
       <form action="/predict" method="post">
@@ -29,5 +41,4 @@
 </div>
 </div>
 </div>
-
 {% endblock %}

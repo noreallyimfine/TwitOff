@@ -11,3 +11,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 DB = SQLAlchemy(app)
 
 from twitoff_app import routes
+
+
+def length(x):
+    return len(x)
+
+app.jinja_env.globals.update(length=length)
