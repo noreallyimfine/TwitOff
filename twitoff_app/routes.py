@@ -25,7 +25,7 @@ def user(name=None):
     except Exception as e:
         message = f'Error adding {name}: {e}'
         tweets = []
-    return render_template('user.html', title='User', tweets=tweets,
+    return render_template('user.html', title=f'{name}', tweets=tweets,
                            message=message)
 
 
@@ -55,8 +55,12 @@ def predict():
         raise ValueError('User 2 is not in the app. Please add user first')
     else:
         pred = predict_user(user1, user2, tweet_text)[0]
+        message = message = ' is more likely to tweet this than '
         if pred == 0:
-            message = f'{user2} is more likely to tweet this than {user1}'
+            winner = user2
+            loser = user1
         else:
-            message = f'{user1} is more likely to tweet this than {user2}'
-        return message
+            winner = user1
+            loser = user2
+        return render_template('predict.html', title='Prediction',
+                               winner=winner, loser=loser, message=message)

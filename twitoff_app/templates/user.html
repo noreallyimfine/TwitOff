@@ -1,10 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2>User: {{ title }}</h2>
+<h2 class="text-center text-weight-bold"  >User: {{ title }}</h2>
 <p> {{ message }}</p>
 <ul>
     {% for tweet in tweets %}
-    <li>{{tweet.id}} - {{ tweet.text }}</li>
+    <ul> Tweet #{{tweet.id}}</ul> 
+        <p>{{ tweet.text }}</p>
     {% endfor %}
 </ul>
 {% endblock %}

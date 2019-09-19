@@ -1,17 +1,23 @@
 {% extends "layout.html"%}
 {% block content%}
+<div class="text-center font-weight-bold border-info">
    <p> By gathering and analyzing data on different twitter user and their
      tweets, I've created the TwitOff app! </p>
   <p> How to play:</p>
   <p> You create a hypothetical tweet and pick two users.</p>
   <p> The app will tell you which user would be more likely to tweet that!</p>
   <p> Here are the 5 most recent tweets for each user</p>
-  <div>
-    {% for user in users %}
-      <p>{{ user.name }}</p>
-         {% for tweet in user.tweets[:5]%}
-            <p>{{ tweet.text }}</p>
-         {% endfor %}
-   {% endfor %}
-  </div>
+</div>
+{% for user in users %}
+<div class="text-primary font-weight-bolder">
+   <a href="/user/{{ user.name }}">{{ user.name }}</a>
+</div>    
+{% for tweet in user.tweets[:5]%}
+<div class="text-dark">
+   <ul>
+      <li>{{ tweet.text }}</li>
+   </ul>
+</div>
+{% endfor %}   
+{% endfor %}
 {% endblock %}

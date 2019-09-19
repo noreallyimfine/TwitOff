@@ -1,36 +1,33 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-6 text-center">
     <div class="input-group">
       <form action="/predict" method="post">
-        <input type="text", name="user1" placeholder="User 1">
-        <input type="text", name="user2" placeholder="User 2">
-        <div class="col-sm-6-center">
-          <input type="text", name="tweet_text" placeholder="This is a sample tweet.">
-        </div>
-        <div class="col-sm-6-center">
-          <input type="submit" value="Compare">
-        </div>
+        <input type="text"  name="user1" placeholder="User 1">
+        <input type="text" name="user2" placeholder="User 2">
+        <input type="text", name="tweet_text" placeholder="This is a sample tweet.">
+        <input type="submit" value="Compare">
       </form>
     </div>
   </div>
-  <div class="col-sm-4">
-    <div class="input-group">
+  <div>
       <form method="post" action="/user" >
-        <input type="text", name="user_name" placeholder="User to add">
+        <input type="text" name="user_name" placeholder="Add User.">
         <input type="submit" value="Add User">
       </form>
-    </div>
   </div>
+</div>
+<div class="row">
   <div class="col-sm-6"></div>
-  <div class="col-sm-6">
+<div class="col-sm-4 md-4">
   {% for user in users %}
   <ul class="list-group">
-    <li class="list-group-item">@{{ user.name }}</li>
+    <a href="/user/{{ user.name }}" class="list-group-item-info bg-light text-center text-primary">@{{ user.name }}</li>
   </ul>
   {% endfor %}
-  </div>
-</div> 
+</div>
+</div>
+</div>
 
 {% endblock %}
